@@ -1,0 +1,30 @@
+name: Release Extension
+
+on:
+  push:
+    tags:
+      - 'v*' # Триггер на теги вида v1.0.0
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Build extension
+      run: npm run build
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          release/crx-poe-trade-filter-autofill-1.0.0.zip         
+        draft: false
+        prerelease: false
