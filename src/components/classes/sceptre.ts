@@ -56,7 +56,7 @@ export class CSceptre extends CBaseItem {
         const spiritString = characters.find((string) => string.includes("Дух:"))
         if (spiritString) {
             const value = +spiritString.match(/\d+/g)![0]
-            return this.calculateValue(value, quality)
+            this.spirit = this.calculateValue(value, quality)
         } else {
             this.spirit = null
         }

@@ -1,5 +1,5 @@
 import {createRoot} from 'react-dom/client';
-import Parser from "@/components/parser/parser.tsx";
+import Parser from "../components/parser/parser.tsx";
 import React from "react";
 
 console.log('[CRXJS] Hello world from content script!')
@@ -14,7 +14,7 @@ function initAdditionalFields() {
 
     const containerTarget = document.getElementById("app")
 
-    containerTarget.appendChild(container)
+    containerTarget!.appendChild(container)
 
     const root = createRoot(container);
     root.render(<Parser/>)

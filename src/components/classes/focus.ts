@@ -71,6 +71,8 @@ export class CFocus extends CBaseItem {
         if (energyShieldItem) {
             const value = +energyShieldItem.match(/\d+/g)![0]
             this.energyShield = this.calculateValue(value, quality)
+        } else {
+            this.energyShield = null
         }
 
     }

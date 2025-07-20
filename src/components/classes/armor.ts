@@ -68,18 +68,24 @@ export class CArmor extends CBaseItem {
         if (armorItem) {
             const value = +armorItem.match(/\d+/g)![0]
             this.armor = this.calculateValue(value, quality)
+        } else {
+            this.armor = null
         }
 
         const evasionItem = characters.find((string) => string.includes("Уклонение:"))
         if (evasionItem) {
             const value = +evasionItem.match(/\d+/g)![0]
             this.evasion = this.calculateValue(value, quality)
+        } else {
+            this.evasion = null
         }
 
         const energyShieldItem = characters.find((string) => string.includes("Энергетический щит:"))
         if (energyShieldItem) {
             const value = +energyShieldItem.match(/\d+/g)![0]
             this.energyShield = this.calculateValue(value, quality)
+        } else {
+            this.energyShield = null
         }
 
     }

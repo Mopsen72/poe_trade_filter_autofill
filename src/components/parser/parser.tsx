@@ -32,24 +32,37 @@ const Parser = () => {
 
     const [percentDecrease, setPercentDecrease] = useState<string>("5")
 
+    //@ts-ignore
     const selectorCategoryOptionsItems = document.querySelector("#trade > div.top > div > div.search-bar.search-advanced > div > div.search-advanced-pane.blue > div:nth-child(1) > div.filter-group-body > div:nth-child(1) > span > div.multiselect.filter-select > div.multiselect__content-wrapper > ul")
+    //@ts-ignore
     const selectorAdditionalOptionsItems = document.querySelector("#trade > div.top > div > div.search-bar.search-advanced > div > div.search-advanced-pane.brown > div.filter-group.expanded > div.filter-group-body > div > span > div > div.multiselect__content-wrapper > ul")
+    //@ts-ignore
     const additionalOptionsContainer = document.querySelector("#trade > div.top > div > div.search-bar.search-advanced > div > div.search-advanced-pane.brown > div.filter-group.expanded > div.filter-group-body")
 
     //weapon
+    //@ts-ignore
     const criticalChanceInput: HTMLInputElement = document.querySelector("#trade > div.top > div > div.search-bar.search-advanced > div > div.search-advanced-pane.blue > div:nth-child(2) > div.filter-group-body > div:nth-child(3) > span > input:nth-child(3)")
+    //@ts-ignore
     const minPhysicalDamageInput: HTMLInputElement = document.querySelector("#trade > div.top > div > div.search-bar.search-advanced > div > div.search-advanced-pane.blue > div:nth-child(2) > div.filter-group-body > div:nth-child(5) > span > input:nth-child(3)")
+    //@ts-ignore
     const minElementalDamageInput: HTMLInputElement = document.querySelector("#trade > div.top > div > div.search-bar.search-advanced > div > div.search-advanced-pane.blue > div:nth-child(2) > div.filter-group-body > div:nth-child(6) > span > input:nth-child(3)")
 
     //armor
+    //@ts-ignore
     const minArmorInput: HTMLInputElement = document.querySelector("#trade > div.top > div > div.search-bar.search-advanced > div > div.search-advanced-pane.blue > div:nth-child(2) > div.filter-group-body > div:nth-child(8) > span > input:nth-child(3)")
+    //@ts-ignore
     const minEvasionInput: HTMLInputElement = document.querySelector("#trade > div.top > div > div.search-bar.search-advanced > div > div.search-advanced-pane.blue > div:nth-child(2) > div.filter-group-body > div:nth-child(9) > span > input:nth-child(3)")
+    //@ts-ignore
     const minESInput: HTMLInputElement = document.querySelector("#trade > div.top > div > div.search-bar.search-advanced > div > div.search-advanced-pane.blue > div:nth-child(2) > div.filter-group-body > div:nth-child(10) > span > input:nth-child(3)")
+    //@ts-ignore
     const minBlockInput: HTMLInputElement = document.querySelector("#trade > div.top > div > div.search-bar.search-advanced > div > div.search-advanced-pane.blue > div:nth-child(2) > div.filter-group-body > div:nth-child(11) > span > input:nth-child(3)")
+    //@ts-ignore
     const minSpiritInput: HTMLInputElement = document.querySelector("#trade > div.top > div > div.search-bar.search-advanced > div > div.search-advanced-pane.blue > div:nth-child(2) > div.filter-group-body > div:nth-child(12) > span > input:nth-child(3)")
 
     //clearButtons
+    //@ts-ignore
     const clearCharacterButton: HTMLButtonElement = document.querySelector("#trade > div.top > div > div.search-bar.search-advanced > div > div.search-advanced-pane.blue > div:nth-child(2) > div.filter-group-header > div > span.filter-body > span.input-group-btn > button")
+    //@ts-ignore
     const clearAdditionalButton: HTMLButtonElement = document.querySelector("#trade > div.top > div > div.search-bar.search-advanced > div > div.search-advanced-pane.brown > div.filter-group.expanded > div.filter-group-header > div > span:nth-child(3) > button")
 
     function delay(ms: number): Promise<void> {
@@ -65,7 +78,7 @@ const Parser = () => {
     }
 
     function changeCategory(category: CATEGORIES) {
-        const node = findSelectNodeByInnerHTML(selectorCategoryOptionsItems.children, category)
+        const node = findSelectNodeByInnerHTML(selectorCategoryOptionsItems!.children, category)
         //@ts-ignore
         node.children[0].click()
     }
@@ -133,14 +146,14 @@ const Parser = () => {
     }
 
     async function fillAdditionalOption(additional: IAdditionalOption, index: number) {
-        const node = findSelectNodeByInnerHTML(selectorAdditionalOptionsItems.children, additional.option)
+        const node = findSelectNodeByInnerHTML(selectorAdditionalOptionsItems!.children, additional.option)
         //@ts-ignore
         node.children[0].click();
         await delay(50)
         //@ts-ignore
         const input: HTMLInputElement = additionalOptionsContainer.children[index].children[1].children[2];
 
-        const value = Math.round(+additional.match[additional.match.length - 1] * (1 - (percentDecrease / 100)))
+        const value = Math.round(+additional.match[additional.match.length - 1] * (1 - (+percentDecrease / 100)))
         await changeInputValue(input, `${value}`)
     }
 
@@ -165,13 +178,13 @@ const Parser = () => {
         if (category === CATEGORIES.bow || category === CATEGORIES.crossbow || category === CATEGORIES.mace || category === CATEGORIES.hhMace || category === CATEGORIES.spear || category === CATEGORIES.warStaff) {
             const weapon = new CAttackWeapon(item)
             if (weapon.criticalChance) {
-                await changeInputValue(criticalChanceInput, `${Math.round(weapon.criticalChance * (1 - (percentDecrease / 100)))}`)
+                await changeInputValue(criticalChanceInput, `${Math.round(weapon.criticalChance * (1 - (+percentDecrease / 100)))}`)
             }
             if (weapon.physicalDPS) {
-                await changeInputValue(minPhysicalDamageInput, `${Math.round(weapon.physicalDPS * (1 - (percentDecrease / 100)))}`)
+                await changeInputValue(minPhysicalDamageInput, `${Math.round(weapon.physicalDPS * (1 - (+percentDecrease / 100)))}`)
             }
             if (weapon.elementalDPS) {
-                await changeInputValue(minElementalDamageInput, `${Math.round(weapon.elementalDPS * (1 - (percentDecrease / 100)))}`)
+                await changeInputValue(minElementalDamageInput, `${Math.round(weapon.elementalDPS * (1 - (+percentDecrease / 100)))}`)
             }
             if (weapon.additional.length > 0) {
                 weapon.additional.forEach((el, index) => {
@@ -201,16 +214,16 @@ const Parser = () => {
             const shield = new CShield(item)
 
             if (shield.armor) {
-                await changeInputValue(minArmorInput, `${Math.round(shield.armor * (1 - (percentDecrease / 100)))}`)
+                await changeInputValue(minArmorInput, `${Math.round(shield.armor * (1 - (+percentDecrease / 100)))}`)
             }
             if (shield.evasion) {
-                await changeInputValue(minEvasionInput, `${Math.round(shield.evasion * (1 - (percentDecrease / 100)))}`)
+                await changeInputValue(minEvasionInput, `${Math.round(shield.evasion * (1 - (+percentDecrease / 100)))}`)
             }
             if (shield.energyShield) {
-                await changeInputValue(minESInput, `${Math.round(shield.energyShield * (1 - (percentDecrease / 100)))}`)
+                await changeInputValue(minESInput, `${Math.round(shield.energyShield * (1 - (+percentDecrease / 100)))}`)
             }
             if (shield.block) {
-                await changeInputValue(minBlockInput, `${Math.round(shield.block * (1 - (percentDecrease / 100)))}`)
+                await changeInputValue(minBlockInput, `${Math.round(shield.block * (1 - (+percentDecrease / 100)))}`)
             }
 
             if (shield.additional.length > 0) {
@@ -223,7 +236,7 @@ const Parser = () => {
             const focus = new CFocus(item)
 
             if (focus.energyShield) {
-                await changeInputValue(minESInput, `${Math.round(focus.energyShield * (1 - (percentDecrease / 100)))}`)
+                await changeInputValue(minESInput, `${Math.round(focus.energyShield * (1 - (+percentDecrease / 100)))}`)
             }
             if (focus.additional.length > 0) {
                 focus.additional.forEach((el, index) => {
@@ -235,7 +248,7 @@ const Parser = () => {
             const sceptre = new CSceptre(item);
 
             if (sceptre.spirit) {
-                await changeInputValue(minSpiritInput, `${Math.round(sceptre.spirit * (1 - (percentDecrease / 100)))}`)
+                await changeInputValue(minSpiritInput, `${Math.round(sceptre.spirit * (1 - (+percentDecrease / 100)))}`)
             }
 
             if (sceptre.additional.length > 0) {
@@ -248,13 +261,13 @@ const Parser = () => {
             const armor = new CArmor(item);
 
             if (armor.armor) {
-                await changeInputValue(minArmorInput, `${Math.round(armor.armor * (1 - (percentDecrease / 100)))}`)
+                await changeInputValue(minArmorInput, `${Math.round(armor.armor * (1 - (+percentDecrease / 100)))}`)
             }
             if (armor.evasion) {
-                await changeInputValue(minEvasionInput, `${Math.round(armor.evasion * (1 - (percentDecrease / 100)))}`)
+                await changeInputValue(minEvasionInput, `${Math.round(armor.evasion * (1 - (+percentDecrease / 100)))}`)
             }
             if (armor.energyShield) {
-                await changeInputValue(minESInput, `${Math.round(armor.energyShield * (1 - (percentDecrease / 100)))}`)
+                await changeInputValue(minESInput, `${Math.round(armor.energyShield * (1 - (+percentDecrease / 100)))}`)
             }
 
             if (armor.additional.length > 0) {

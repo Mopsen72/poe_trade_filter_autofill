@@ -37,9 +37,9 @@ export class CAttackWeapon extends CBaseItem {
         const qualityString = weaponCharacters.find((string) => string.includes("Качество:"))
         let quality = qualityString ? +qualityString.match(/[+-]?\d+(\.\d+)?/g)![0] : 0
 
-        const attackSpeed = +weaponCharacters.find((string) => string.includes("Атак в секунду:")).match(/[+-]?\d+(\.\d+)?/g)![0]
+        const attackSpeed = +weaponCharacters.find((string) => string.includes("Атак в секунду:"))!.match(/[+-]?\d+(\.\d+)?/g)![0]
 
-        this.criticalChance = +weaponCharacters.find((string) => string.includes("Шанс крит. попадания:")).match(/(\d+\.?\d*)/g)![0]
+        this.criticalChance = +weaponCharacters.find((string) => string.includes("Шанс крит. попадания:"))!.match(/(\d+\.?\d*)/g)![0]
 
         if (physicalDamage > 0 && quality >= 20) {
             this.physicalDPS = physicalDamage * attackSpeed
@@ -65,7 +65,7 @@ export class CAttackWeapon extends CBaseItem {
         const damageString = source.find((sourceString) => sourceString.includes(string))
         if (damageString) {
             const damageValues = damageString.match(/[+-]?\d+(\.\d+)?/g)
-            const value = (+damageValues[0] + (+damageValues[1] * -1)) / 2
+            const value = (+damageValues![0] + (+damageValues![1] * -1)) / 2
             return Math.round(value)
         } else {
             return 0

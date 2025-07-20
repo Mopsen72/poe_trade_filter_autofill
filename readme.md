@@ -40,3 +40,11 @@
 на который необходимо снизить характеристики. или указать 0 для отсутсвия снижения.
 
 пока поддерживается только вещи с русской версии игры
+
+## Установка
+
+1. Скачайте `extension.zip` из [последнего релиза](https://github.com/Mopsen72/poe_trade_filter_autofill/releases)
+2. Распакуйте архив
+3. В браузере:
+    - Chrome: `chrome://extensions` → "Load unpacked"
+    - Firefox: `about:debugging#/runtime/this-firefox` → "Load Temporary Add-on"
