@@ -1,0 +1,58 @@
+import {CBaseItem} from "./base";
+import {IAdditionalPattern} from "../parser/types.ts";
+import {ADDED_FIRE_DAMAGE, ADDED_ICE_DAMAGE, ADDED_LIGHTNING_DAMAGE,} from "./consts/patterns.ts";
+import {
+    CHAOS_SPELL_DAMAGE,
+    CHAOS_SPELL_LEVEL,
+    CRITICAL_CHANCE_SPELL,
+    CRITICAL_DAMAGE_SPELL,
+    FIRE_SPELL_DAMAGE,
+    FIRE_SPELL_LEVEL,
+    ICE_SPELL_DAMAGE,
+    ICE_SPELL_LEVEL,
+    LIGHTNING_SPELL_DAMAGE,
+    LIGHTNING_SPELL_LEVEL,
+    PHYSICAL_SPELL_DAMAGE,
+    PHYSICAL_SPELL_LEVEL,
+    SPELL_CAST_SPEED,
+    SPELL_DAMAGE,
+    SPELL_LEVEL,
+} from "./consts/spellPatterns.ts"
+import {ALL_CHARACTERS, DEXTERITY, INTELLIGENT, MANA, MANA_REGEN, STRENGTH} from "./consts/characterPatterns.ts";
+
+const MODIFIER_PATTERNS: Record<string, IAdditionalPattern> = {
+
+    ALL_CHARACTERS,
+    STRENGTH,
+    DEXTERITY,
+    INTELLIGENT,
+    MANA,
+    MANA_REGEN,
+    PHYSICAL_SPELL_DAMAGE,
+    FIRE_SPELL_DAMAGE,
+    ICE_SPELL_DAMAGE,
+    LIGHTNING_SPELL_DAMAGE,
+    CHAOS_SPELL_DAMAGE,
+    SPELL_DAMAGE,
+    CRITICAL_CHANCE_SPELL,
+    CRITICAL_DAMAGE_SPELL,
+    ADDED_FIRE_DAMAGE,
+    ADDED_ICE_DAMAGE,
+    ADDED_LIGHTNING_DAMAGE,
+    PHYSICAL_SPELL_LEVEL,
+    FIRE_SPELL_LEVEL,
+    ICE_SPELL_LEVEL,
+    LIGHTNING_SPELL_LEVEL,
+    CHAOS_SPELL_LEVEL,
+    SPELL_LEVEL,
+    SPELL_CAST_SPEED
+
+}
+
+export class CSpellWeapon extends CBaseItem {
+
+    constructor(stringItem: string) {
+        super(stringItem, MODIFIER_PATTERNS);
+    }
+
+}
