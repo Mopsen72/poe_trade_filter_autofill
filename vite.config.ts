@@ -15,7 +15,7 @@ export default defineConfig({
     plugins: [
         react(),
         crx({manifest}),
-        zip({outDir: 'release', outFileName: `${name}-${version}.zip`}),
+        zip({outDir: 'release', outFileName: `${name}-v${version}.zip`}),
     ],
     server: {
         cors: {
