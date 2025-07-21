@@ -29,7 +29,7 @@ import {
     FLAT_PHYSICAL_DAMAGE
 } from "./consts/attackPatterns.ts";
 import {SPELL_CAST_SPEED} from "./consts/spellPatterns.ts";
-import {STUN_PROTECTION} from "~/components/classes/consts/defencePatterns.ts";
+import {STUN_PROTECTION} from "./consts/defencePatterns.ts";
 
 const MODIFIER_PATTERNS: Record<string, IAdditionalPattern> = {
     ALL_CHARACTERS,
