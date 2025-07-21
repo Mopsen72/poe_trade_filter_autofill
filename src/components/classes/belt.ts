@@ -1,6 +1,6 @@
 import {CBaseItem} from "./base";
 import {IAdditionalPattern} from "../parser/types.ts";
-import {RARITY} from "./consts/patterns.ts";
+import {FLAT_THORN_DAMAGE, RARITY} from "./consts/patterns.ts";
 import {
     ALL_CHARACTERS,
     DEXTERITY,
@@ -12,7 +12,7 @@ import {
     STRENGTH
 } from "./consts/characterPatterns.ts";
 import {CHAOS_RESIST, ELEMENTAL_RESIST, FIRE_RESIST, ICE_RESIST, LIGHTNING_RESIST} from "./consts/resistPatterns.ts";
-import {ADD_ARMOR} from "./consts/defencePatterns.ts";
+import {ADD_ARMOR, STUN_PROTECTION} from "./consts/defencePatterns.ts";
 
 const MODIFIER_PATTERNS: Record<string, IAdditionalPattern> = {
     ALL_CHARACTERS,
@@ -29,7 +29,9 @@ const MODIFIER_PATTERNS: Record<string, IAdditionalPattern> = {
     LIGHTNING_RESIST,
     CHAOS_RESIST,
     RARITY,
-    ADD_ARMOR
+    ADD_ARMOR,
+    FLAT_THORN_DAMAGE,
+    STUN_PROTECTION
 }
 
 export class CBelt extends CBaseItem {

@@ -34,6 +34,11 @@ export const SPELL_DAMAGE: IAdditionalPattern = {
     option: "#% увеличение урона от чар"
 };
 
+export const SPELL_ELEMENTAL_DAMAGE: IAdditionalPattern = {
+    pattern: /^(\d+)% увеличение урона от стихий$/,
+    option: "#% увеличение урона от стихий"
+}
+
 export const CRITICAL_CHANCE_SPELL: IAdditionalPattern = {
     pattern: /^(\d+\.?\d*)% повышение шанса критического удара для чар$/,
     option: "#% повышение шанса критического удара для чар"
@@ -73,3 +78,8 @@ export const SPELL_LEVEL: IAdditionalPattern = {
     pattern: /^\+(\d+) к уровню всех камней умений чар$/,
     option: "# к уровню всех камней умений чар"
 };
+
+export const AUTO_SPELL_DAMAGE: IAdditionalPattern = {
+    pattern: /^Срабатывающие чары наносят увеличенный на (\d+)% урон от чар$/,
+    option: "Срабатывающие чары наносят увеличенный на #% урон от чар"
+}

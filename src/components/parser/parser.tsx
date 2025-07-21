@@ -20,6 +20,7 @@ import {CArmor} from "../classes/armor.ts";
 import {CBelt} from "../classes/belt.ts";
 import {CRing} from "../classes/ring.ts";
 import {CNecklace} from "../classes/necklace.ts";
+import {CGem} from "../classes/gem.ts";
 
 const darkTheme = createTheme({
     palette: {
@@ -71,7 +72,7 @@ const Parser = (props: { haveUpdate: boolean }) => {
 
     function findSelectNodeByInnerHTML(options: HTMLCollection, findingString: string) {
         for (let option of options) {
-            if (option.getHTML().includes(findingString)) {
+            if (option.getHTML().includes(findingString) && !option.getHTML().includes("На предмете")) {
                 return option
             }
         }
@@ -139,6 +140,8 @@ const Parser = (props: { haveUpdate: boolean }) => {
                 return CATEGORIES.necklace
             case "Пояса":
                 return CATEGORIES.belt
+            case "Самоцветы":
+                return CATEGORIES.gem
             default:
                 console.log(`Категория предмета связанная с ${categoryItem} не найдена`)
                 return null
@@ -297,6 +300,14 @@ const Parser = (props: { haveUpdate: boolean }) => {
 
             if (necklace.additional.length > 0) {
                 necklace.additional.forEach((el, index) => {
+                    fillAdditionalOption(el, index)
+                })
+            }
+        } else if (category === CATEGORIES.gem) {
+            const gem = new CGem(item)
+
+            if (gem.additional.length > 0) {
+                gem.additional.forEach((el, index) => {
                     fillAdditionalOption(el, index)
                 })
             }

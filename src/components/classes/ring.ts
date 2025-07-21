@@ -11,7 +11,7 @@ import {
     MANA_REGEN,
     STRENGTH
 } from "./consts/characterPatterns.ts";
-import {RARITY} from "./consts/patterns.ts";
+import {ACCURACY, RARITY} from "./consts/patterns.ts";
 import {CHAOS_RESIST, ELEMENTAL_RESIST, FIRE_RESIST, ICE_RESIST, LIGHTNING_RESIST} from "./consts/resistPatterns.ts";
 import {FIRE_SPELL_DAMAGE, ICE_SPELL_DAMAGE, LIGHTNING_SPELL_DAMAGE} from "./consts/spellPatterns.ts";
 import {
@@ -20,7 +20,7 @@ import {
     FLAT_LIGHTNING_DAMAGE,
     FLAT_PHYSICAL_DAMAGE
 } from "./consts/attackPatterns.ts"
-import {ADD_EVASION} from "./consts/defencePatterns.ts";
+import {ADD_EVASION, STUN_PROTECTION} from "./consts/defencePatterns.ts";
 
 const MODIFIER_PATTERNS: Record<string, IAdditionalPattern> = {
     ALL_CHARACTERS,
@@ -45,8 +45,9 @@ const MODIFIER_PATTERNS: Record<string, IAdditionalPattern> = {
     FLAT_PHYSICAL_DAMAGE,
     FLAT_FIRE_DAMAGE,
     FLAT_ICE_DAMAGE,
-    ADD_EVASION
-
+    ADD_EVASION,
+    ACCURACY,
+    STUN_PROTECTION
 }
 
 

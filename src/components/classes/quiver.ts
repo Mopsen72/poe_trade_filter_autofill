@@ -1,6 +1,6 @@
 import {CBaseItem} from "./base";
 import {IAdditionalPattern} from "../parser/types.ts";
-import {BOW_DAMAGE, PROJECTILE_LEVEL, PROJECTILE_SPEED,} from "./consts/patterns.ts";
+import {ACCURACY, BOW_SPELL_DAMAGE, PROJECTILE_LEVEL, PROJECTILE_SPEED,} from "./consts/patterns.ts";
 import {ALL_CHARACTERS, DEXTERITY, INTELLIGENT, STRENGTH} from "./consts/characterPatterns.ts";
 import {
     ATTACK_SPEED,
@@ -22,13 +22,13 @@ const MODIFIER_PATTERNS: Record<string, IAdditionalPattern> = {
     CRITICAL_DAMAGE_ATTACK,
     ATTACK_SPEED,
     PROJECTILE_SPEED,
-    BOW_DAMAGE,
+    BOW_SPELL_DAMAGE,
     FLAT_PHYSICAL_DAMAGE,
     FLAT_FIRE_DAMAGE,
     FLAT_ICE_DAMAGE,
     FLAT_LIGHTNING_DAMAGE,
     PROJECTILE_LEVEL,
-
+    ACCURACY
 };
 
 export class CQuiver extends CBaseItem {

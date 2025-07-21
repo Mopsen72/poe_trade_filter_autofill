@@ -18,7 +18,8 @@ export enum CATEGORIES {
     foot = "Сапоги",
     ring = "Кольцо",
     necklace = "Амулет",
-    belt = "Пояс"
+    belt = "Пояс",
+    gem = "Любой самоцвет"
 }
 
 export  type TCategories = keyof typeof CATEGORIES

@@ -1,6 +1,14 @@
 import {CBaseItem} from "./base.ts";
 import {IAdditionalPattern} from "../parser/types.ts";
-import {MELEE_LEVEL, MOVE_SPEED, RARITY, SPIRIT} from "./consts/patterns.ts";
+import {
+    ACCURACY,
+    CRITICAL_CHANCE,
+    FLAT_THORN_DAMAGE,
+    MELEE_LEVEL,
+    MOVE_SPEED,
+    RARITY,
+    SPIRIT
+} from "./consts/patterns.ts";
 import {
     ALL_CHARACTERS,
     DEXTERITY,
@@ -21,6 +29,7 @@ import {
     FLAT_PHYSICAL_DAMAGE
 } from "./consts/attackPatterns.ts";
 import {SPELL_CAST_SPEED} from "./consts/spellPatterns.ts";
+import {STUN_PROTECTION} from "~/components/classes/consts/defencePatterns.ts";
 
 const MODIFIER_PATTERNS: Record<string, IAdditionalPattern> = {
     ALL_CHARACTERS,
@@ -46,7 +55,11 @@ const MODIFIER_PATTERNS: Record<string, IAdditionalPattern> = {
     SPIRIT,
     MOVE_SPEED,
     ATTACK_SPEED,
-    SPELL_CAST_SPEED
+    SPELL_CAST_SPEED,
+    FLAT_THORN_DAMAGE,
+    ACCURACY,
+    STUN_PROTECTION,
+    CRITICAL_CHANCE
 }
 
 export class CArmor extends CBaseItem {

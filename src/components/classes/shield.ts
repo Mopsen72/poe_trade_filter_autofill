@@ -10,6 +10,7 @@ import {
     MAX_FIRE_RESIST,
     MAX_LIGHTNING_RESIST,
 } from "./consts/resistPatterns.ts";
+import {FLAT_THORN_DAMAGE} from "./consts/patterns.ts"
 import {ALL_CHARACTERS, DEXTERITY, INTELLIGENT, LIFE, MANA, STRENGTH} from "./consts/characterPatterns.ts";
 
 const MODIFIER_PATTERNS: Record<string, IAdditionalPattern> = {
@@ -27,6 +28,7 @@ const MODIFIER_PATTERNS: Record<string, IAdditionalPattern> = {
     STRENGTH,
     DEXTERITY,
     INTELLIGENT,
+    FLAT_THORN_DAMAGE
 }
 
 export class CShield extends CBaseItem {

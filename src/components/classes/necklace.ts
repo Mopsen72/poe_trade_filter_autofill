@@ -11,7 +11,7 @@ import {
     MANA_REGEN,
     STRENGTH
 } from "./consts/characterPatterns.ts";
-import {MELEE_LEVEL, PROJECTILE_LEVEL, RARITY} from "./consts/patterns.ts";
+import {CRITICAL_CHANCE, MELEE_LEVEL, PROJECTILE_LEVEL, RARITY} from "./consts/patterns.ts";
 import {CHAOS_RESIST, ELEMENTAL_RESIST, FIRE_RESIST, ICE_RESIST, LIGHTNING_RESIST} from "./consts/resistPatterns.ts";
 import {FIRE_SPELL_DAMAGE, ICE_SPELL_DAMAGE, LIGHTNING_SPELL_DAMAGE, SPELL_LEVEL} from "./consts/spellPatterns.ts";
 
@@ -49,7 +49,8 @@ const MODIFIER_PATTERNS: Record<string, IAdditionalPattern> = {
     MELEE_LEVEL,
     PROJECTILE_LEVEL,
     MINION_LEVEL,
-    SPELL_LEVEL
+    SPELL_LEVEL,
+    CRITICAL_CHANCE
 }
 
 

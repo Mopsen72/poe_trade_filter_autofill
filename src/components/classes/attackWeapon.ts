@@ -1,7 +1,8 @@
 import {IAdditionalPattern} from "../parser/types.ts";
 import {CBaseItem} from "./base";
-import {CRITICAL_DAMAGE, MELEE_LEVEL, PROJECTILE_LEVEL,} from "./consts/patterns.ts";
+import {ACCURACY, CRITICAL_DAMAGE, MELEE_LEVEL, PROJECTILE_LEVEL,} from "./consts/patterns.ts";
 import {ALL_CHARACTERS, DEXTERITY, INTELLIGENT, STRENGTH} from "./consts/characterPatterns.ts";
+import {ELEMENTAL_DAMAGE_ATTACK} from "./consts/attackPatterns.ts";
 
 const MODIFIER_PATTERNS: Record<string, IAdditionalPattern> = {
     ALL_CHARACTERS,
@@ -11,6 +12,8 @@ const MODIFIER_PATTERNS: Record<string, IAdditionalPattern> = {
     CRITICAL_DAMAGE,
     PROJECTILE_LEVEL,
     MELEE_LEVEL,
+    ELEMENTAL_DAMAGE_ATTACK,
+    ACCURACY
 };
 
 export class CAttackWeapon extends CBaseItem {

@@ -37,6 +37,11 @@ export const LIFE_REGENERATION: IAdditionalPattern = {
     option: "Регенерация # здоровья в секунду"
 };
 
+export const LIFE_REGENERATION_PERCENT: IAdditionalPattern = {
+    pattern: /^(\d+)% повышение скорости регенерации здоровья$/,
+    option: "#% повышение скорости регенерации здоровья"
+}
+
 export const MANA: IAdditionalPattern = {
     pattern: /^\+(\d+) к максимуму маны$/,
     option: "# к максимуму маны"
