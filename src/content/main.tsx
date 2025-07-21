@@ -1,11 +1,12 @@
 import {createRoot} from 'react-dom/client';
 import Parser from "../components/parser/parser.tsx";
 import React from "react";
+import {checkForUpdates} from "../components/utils/checkUpdate.ts";
 
 console.log('[CRXJS] Hello world from content script!')
 
 
-function initAdditionalFields() {
+async function initAdditionalFields() {
 
     console.log("initAdditionalFields")
 
@@ -16,8 +17,12 @@ function initAdditionalFields() {
 
     containerTarget!.appendChild(container)
 
+    const haveUpdate = await checkForUpdates()
+
+    console.log("check update", haveUpdate)
+
     const root = createRoot(container);
-    root.render(<Parser/>)
+    root.render(<Parser haveUpdate={haveUpdate}/>)
 
 }
 

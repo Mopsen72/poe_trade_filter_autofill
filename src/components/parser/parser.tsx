@@ -26,7 +26,7 @@ const darkTheme = createTheme({
         mode: 'dark',
     },
 });
-const Parser = () => {
+const Parser = (props: { haveUpdate: boolean }) => {
 
     const [item, setItem] = useState<string>("")
 
@@ -304,6 +304,7 @@ const Parser = () => {
 
     }
 
+
     return <>
         <ThemeProvider theme={darkTheme}>
             <div className={style.parser}>
@@ -332,6 +333,10 @@ const Parser = () => {
                         </div>
 
                         <div className={style.actions}>
+                            {props.haveUpdate && <Button variant="contained" sx={{fontSize: "1rem"}}
+                                                         href={"https://github.com/Mopsen72/poe_trade_filter_autofill/releases"}
+                                                         target={"_blank"}>Доступно
+                                обновление</Button>}
                             <Button variant="contained" sx={{fontSize: "1rem"}} onClick={fillFilterHandler}>Заполнить
                                 фильтры</Button>
                         </div>
