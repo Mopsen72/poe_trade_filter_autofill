@@ -33,7 +33,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            release/crx-poe-trade-filter-autofill-${{ github.ref_name }}.zip
+            release/poe-trade-filter-autofill-${{ github.ref_name }}.zip
           draft: false
           prerelease: false
         env:
