@@ -2,8 +2,8 @@
 
 ## Идея
 
-когда мы играем в POE 2 при нажатии на ctrl+c на предмете, и вставить его содержимое в буфер обмена
-мы получим что-то на подобие этого
+когда мы играем в POE 2 при нажатии на ctrl+c на предмете, и вставить его содержимое буфера обмена
+в текстовый редактор мы получим что-то на подобие этого
 
 ```
 Класс предмета: Кольца
@@ -43,7 +43,7 @@
 
 ## Установка
 
-1. Скачайте `extension.zip` из [последнего релиза](https://github.com/Mopsen72/poe_trade_filter_autofill/releases)
+1. Скачайте `poe-trade-filter-autofill.zip` из [последнего релиза](https://github.com/Mopsen72/poe_trade_filter_autofill/releases)
 2. Распакуйте архив
 3. В браузере:
     - Chrome: `chrome://extensions` → "Load unpacked"
